@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv1llrj3s3ykw"]
 
-[ext_resource type="Texture2D" uid="uid://4b4f44qlgv3s" path="res://trees/tree1.png" id="1_brfkd"]
+[ext_resource type="Texture2D" uid="uid://4b4f44qlgv3s" path="res://scenes/main/trees/tree1.png" id="1_v02rt"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_uc1xx"]
 height = 20.0
@@ -17,4 +17,4 @@ offset = Vector2(0, 180)
 modulate = Color(0.039215688, 0.14117648, 0.03137255, 1)
 pixel_size = 0.02
 billboard = 2
-texture = ExtResource("1_brfkd")
+texture = ExtResource("1_v02rt")
