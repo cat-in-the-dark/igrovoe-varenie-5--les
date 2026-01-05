@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwdli0jpslv01"]
+
+[ext_resource type="Script" uid="uid://ix63wx07aw2p" path="res://forest/generator.gd" id="1_upibj"]
+[ext_resource type="PackedScene" uid="uid://cv1llrj3s3ykw" path="res://tree.tscn" id="2_0h5of"]
+[ext_resource type="Material" uid="uid://bqkcf5x3gf0co" path="res://leaves/leaves.tres" id="3_cc8ww"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2j70g"]
+material = ExtResource("3_cc8ww")
+size = Vector2(32, 32)
+
+[node name="forest" type="Node3D"]
+script = ExtResource("1_upibj")
+prefab = ExtResource("2_0h5of")
+
+[node name="floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_2j70g")
+skeleton = NodePath("../..")

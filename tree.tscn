@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv1llrj3s3ykw"]
+
+[ext_resource type="Texture2D" uid="uid://4b4f44qlgv3s" path="res://trees/tree1.png" id="1_brfkd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uc1xx"]
+height = 20.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+visible = false
+mesh = SubResource("CylinderMesh_uc1xx")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+offset = Vector2(0, 180)
+modulate = Color(0.039215688, 0.14117648, 0.03137255, 1)
+pixel_size = 0.02
+billboard = 2
+texture = ExtResource("1_brfkd")
