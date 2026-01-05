@@ -20,7 +20,6 @@ func _handle_camera_joystic_move() -> Vector3:
 
 func _handle_move_direction() -> Vector3:
 	var move_input := self._move_cmd()
-	print(move_input)
 	var forward := _camera.global_basis.z
 	var right := _camera.global_basis.x
 	var move_direction := forward * move_input.y + right * move_input.x
