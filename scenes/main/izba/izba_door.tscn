@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3is738jkgolj"]
+
+[ext_resource type="Texture2D" uid="uid://cmslnu342v2sb" path="res://resources/izba/izba.png" id="1_4jxbv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jxbv"]
+
+[node name="IzbaDoor" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_4jxbv")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+pixel_size = 0.05
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_4jxbv")
+region_enabled = true
+region_rect = Rect2(8, 0, 48, 64)

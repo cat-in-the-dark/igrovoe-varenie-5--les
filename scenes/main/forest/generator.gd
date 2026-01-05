@@ -1,7 +1,8 @@
 class_name Tile
 extends Node3D
 
-@export var prefab: PackedScene
+@onready var tree_prefab: PackedScene = preload("res://scenes/main/trees/tree.tscn")
+
 @export var size: float = 32
 @export var spacing: float = 4
 @export var jitter: float = 1
@@ -19,7 +20,7 @@ func generate_points(x: float, y: float) -> Array[Vector2]:
 func spawn_object(points: Array[Vector2]):
 	for i in len(points):
 		var point = points[i]
-		var obj: Node3D = prefab.instantiate()
+		var obj: Node3D = tree_prefab.instantiate()
 		self.add_child(obj)
 		obj.position = Vector3(point.x, 0, point.y)
 		if i % 5 == 0:

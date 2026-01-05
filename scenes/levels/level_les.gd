@@ -20,7 +20,6 @@ func _ready() -> void:
 		if ch is Tile:
 			var idx := world_to_tile_index(ch.position)
 			tiles[idx] = ch
-	print(tiles)
 
 func spawn_tile(idx: Vector2i):
 	if tiles.get(idx):
