@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8wd1uuswlbq8"]
+[gd_scene load_steps=5 format=3 uid="uid://c8wd1uuswlbq8"]
 
 [ext_resource type="PackedScene" uid="uid://j7dlglxk4m4k" path="res://scenes/main/player/player.tscn" id="1_3bmfn"]
+[ext_resource type="Script" uid="uid://dge7gu6ghq8sq" path="res://scenes/levels/level_les.gd" id="1_canl8"]
 [ext_resource type="Environment" uid="uid://dm4rbg40lrqlb" path="res://scenes/levels/level_les_env.tres" id="2_canl8"]
 [ext_resource type="PackedScene" uid="uid://cwdli0jpslv01" path="res://scenes/main/forest/forest.tscn" id="2_p81bp"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_canl8")
+tile_prefab = ExtResource("2_p81bp")
 
 [node name="Player" parent="." instance=ExtResource("1_3bmfn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.743739, 0, 11.312008)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_canl8")

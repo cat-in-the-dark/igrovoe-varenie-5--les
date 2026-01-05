@@ -19,7 +19,6 @@ config/icon="uid://0fs7humwd84o"
 
 window/size/viewport_width=320
 window/size/viewport_height=240
-window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 

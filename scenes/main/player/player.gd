@@ -5,6 +5,12 @@ extends CharacterBody3D
 @export_range(0.0, 10.0) var joystick_sensitivity := 2.5
 @export_range(0.0, 1.0) var mouse_sensitivity := 0.25
 
+@export_group("Movement")
+## Character maximum run speed on the ground in meters per second.
+@export var move_speed := 8.0
+## Ground movement acceleration in meters per second squared.
+@export var acceleration := 20.0
+
 func _move_cmd() -> Vector2:
 	return Input.get_vector("move_left", "move_right", "move_forward", "move_back", 0.4)
 
@@ -32,6 +38,6 @@ func _process(delta: float) -> void:
 	self.global_rotation += rot_dir * delta
 	
 	var move_dir = _handle_move_direction()
-	velocity = velocity.move_toward(move_dir * 4.0, 20.0 * delta)
+	velocity = velocity.move_toward(move_dir * move_speed, acceleration * delta)
 	
 	move_and_slide()

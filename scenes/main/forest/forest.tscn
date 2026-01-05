@@ -13,5 +13,6 @@ script = ExtResource("1_upibj")
 prefab = ExtResource("2_0h5of")
 
 [node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 mesh = SubResource("PlaneMesh_2j70g")
 skeleton = NodePath("../..")
