@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://pjh4ylke5y2m"]
+
+[ext_resource type="PackedScene" uid="uid://bebtglkrci4wc" path="res://scenes/main/floor.tscn" id="1_84svu"]
+[ext_resource type="Script" uid="uid://wdt06jext7en" path="res://scenes/levels/lvl0_enter_les/lvl_0.gd" id="1_cmvmp"]
+[ext_resource type="PackedScene" uid="uid://cx10dts3hw0kb" path="res://scenes/main/fade_effect/fade.tscn" id="2_y2ypo"]
+[ext_resource type="PackedScene" uid="uid://j7dlglxk4m4k" path="res://scenes/main/player/player.tscn" id="2_y81wl"]
+[ext_resource type="Environment" uid="uid://dr4yxftv2soyc" path="res://scenes/levels/lvl0_enter_les/lvl0_env.tres" id="3_2oxld"]
+[ext_resource type="PackedScene" uid="uid://8dx8bbyu1cbi" path="res://scenes/main/forest/forest_enter.tscn" id="4_63jjx"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_63jjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cmvmp"]
+size = Vector3(1, 1, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2ypo"]
+size = Vector3(24, 1, 1)
+
+[node name="Lvl0" type="Node3D"]
+script = ExtResource("1_cmvmp")
+
+[node name="Fade" parent="." instance=ExtResource("2_y2ypo")]
+
+[node name="floor" parent="." instance=ExtResource("1_84svu")]
+
+[node name="floor2" parent="." instance=ExtResource("1_84svu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+
+[node name="floor3" parent="." instance=ExtResource("1_84svu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+
+[node name="forest" parent="." instance=ExtResource("4_63jjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -36)
+
+[node name="forest2" parent="." instance=ExtResource("4_63jjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -36)
+
+[node name="forest3" parent="." instance=ExtResource("4_63jjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -36)
+
+[node name="forest4" parent="." instance=ExtResource("4_63jjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -60)
+
+[node name="forest5" parent="." instance=ExtResource("4_63jjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -60)
+
+[node name="forest6" parent="." instance=ExtResource("4_63jjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -60)
+
+[node name="Player" parent="." instance=ExtResource("2_y81wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.868391)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_2oxld")
+
+[node name="Target" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_63jjx")
+
+[node name="wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, -12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
+shape = SubResource("BoxShape3D_cmvmp")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
+shape = SubResource("BoxShape3D_cmvmp")
+
+[node name="wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.4710541)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3"]
+shape = SubResource("BoxShape3D_y2ypo")
+
+[node name="wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -36.6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4"]
+shape = SubResource("BoxShape3D_y2ypo")
+
+[connection signal="body_entered" from="Target" to="." method="_on_target_body_entered"]

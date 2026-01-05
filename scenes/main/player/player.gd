@@ -11,6 +11,9 @@ extends CharacterBody3D
 ## Ground movement acceleration in meters per second squared.
 @export var acceleration := 20.0
 
+# save this for izba backward movement detection
+var move_input: Vector2 = Vector2.ZERO
+
 func _move_cmd() -> Vector2:
 	return Input.get_vector("move_left", "move_right", "move_forward", "move_back", 0.4)
 
@@ -25,7 +28,7 @@ func _handle_camera_joystic_move() -> Vector3:
 	return Vector3(_camera_input_direction.y, _camera_input_direction.x, 0)
 
 func _handle_move_direction() -> Vector3:
-	var move_input := self._move_cmd()
+	move_input = self._move_cmd()
 	var forward := _camera.global_basis.z
 	var right := _camera.global_basis.x
 	var move_direction := forward * move_input.y + right * move_input.x
@@ -33,7 +36,7 @@ func _handle_move_direction() -> Vector3:
 	move_direction = move_direction.normalized()
 	return move_direction
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var rot_dir = _handle_camera_joystic_move()
 	self.global_rotation += rot_dir * delta
 	
@@ -41,3 +44,8 @@ func _process(delta: float) -> void:
 	velocity = velocity.move_toward(move_dir * move_speed, acceleration * delta)
 	
 	move_and_slide()
+	
+func _ready() -> void:
+	Events.izba_entered.connect(func on_izba_reached() -> void:
+		set_physics_process(false)
+	)

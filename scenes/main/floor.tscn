@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bebtglkrci4wc"]
+
+[ext_resource type="Material" uid="uid://bqkcf5x3gf0co" path="res://resources/leaves/leaves.tres" id="1_pvist"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2j70g"]
+material = ExtResource("1_pvist")
+size = Vector2(24, 24)
+
+[node name="floor" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_2j70g")
+skeleton = NodePath("../..")

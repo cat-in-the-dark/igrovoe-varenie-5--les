@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3is738jkgolj"]
+[gd_scene load_steps=4 format=3 uid="uid://b3is738jkgolj"]
 
 [ext_resource type="Texture2D" uid="uid://cmslnu342v2sb" path="res://resources/izba/izba.png" id="1_4jxbv"]
+[ext_resource type="Script" uid="uid://db8gf5orxm3wl" path="res://scenes/main/izba/izba_door.gd" id="1_l5a2t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jxbv"]
 
 [node name="IzbaDoor" type="Node3D"]
+script = ExtResource("1_l5a2t")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_4jxbv")
@@ -20,3 +23,5 @@ texture_filter = 0
 texture = ExtResource("1_4jxbv")
 region_enabled = true
 region_rect = Rect2(8, 0, 48, 64)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

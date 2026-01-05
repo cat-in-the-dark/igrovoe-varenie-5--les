@@ -1,9 +1,9 @@
+class_name TilemapGenerator
 extends Node3D
 
-@export var tile_size: int = 32
+@export var tile_size: int = 24
 @export var tile_prefab: PackedScene
-
-@onready var player: Node3D = $Player
+@export var player: Player
 
 var tiles: Dictionary[Vector2i, Tile] = {}
 
@@ -23,13 +23,12 @@ func _ready() -> void:
 
 func spawn_tile(idx: Vector2i):
 	if tiles.get(idx):
-		print("Already has a tile here...")
 		return
 	var tile: Node3D = tile_prefab.instantiate()
+	tile.size = tile_size
 	self.add_child(tile)
 	tile.position = tile_index_to_world(idx)
 	tiles[idx] = tile
-	print("New tile at ", idx, " total: ", len(tiles))
 
 func _process(_delta: float) -> void:
 	var player_tile = world_to_tile_index(player.position)
@@ -39,7 +38,6 @@ func _process(_delta: float) -> void:
 		if abs(idx_delta.x) >= 2 or abs(idx_delta.y) >= 2:
 			remove_child(tiles[idx])
 			tiles.erase(idx)
-			print('Deleted child ', idx)
 	
 	for i in range(player_tile.x - 1, player_tile.x + 2):
 		for j in range(player_tile.y - 1, player_tile.y + 2):

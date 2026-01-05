@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://8dx8bbyu1cbi"]
+
+[ext_resource type="Script" uid="uid://ix63wx07aw2p" path="res://scenes/main/forest/generator.gd" id="1_hjrhf"]
+[ext_resource type="PackedScene" uid="uid://bebtglkrci4wc" path="res://scenes/main/floor.tscn" id="2_u258d"]
+
+[node name="forest" type="Node3D"]
+script = ExtResource("1_hjrhf")
+
+[node name="floor" parent="." instance=ExtResource("2_u258d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
