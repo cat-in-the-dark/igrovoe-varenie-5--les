@@ -35,40 +35,41 @@ script = ExtResource("4_37s8p")
 shape = SubResource("BoxShape3D_bjnnk")
 
 [node name="particles" type="Node3D" parent="river"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
 [node name="Particles1" type="GPUParticles3D" parent="river/particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-amount = 16
+amount = 24
 process_material = ExtResource("2_yduvh")
 draw_pass_1 = SubResource("SphereMesh_r1voa")
 
 [node name="Particles2" type="GPUParticles3D" parent="river/particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-amount = 16
+amount = 24
 process_material = ExtResource("2_yduvh")
 draw_pass_1 = SubResource("SphereMesh_r1voa")
 
 [node name="Particles3" type="GPUParticles3D" parent="river/particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
-amount = 16
+amount = 24
 process_material = ExtResource("2_yduvh")
 draw_pass_1 = SubResource("SphereMesh_r1voa")
 
 [node name="Particles4" type="GPUParticles3D" parent="river/particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
-amount = 16
+amount = 24
 process_material = ExtResource("2_yduvh")
 draw_pass_1 = SubResource("SphereMesh_r1voa")
 
 [node name="Particles5" type="GPUParticles3D" parent="river/particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
-amount = 16
+amount = 24
 process_material = ExtResource("2_yduvh")
 draw_pass_1 = SubResource("SphereMesh_r1voa")
 
 [node name="Particles6" type="GPUParticles3D" parent="river/particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
-amount = 16
+amount = 24
 process_material = ExtResource("2_yduvh")
 draw_pass_1 = SubResource("SphereMesh_r1voa")
 

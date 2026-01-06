@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bow68u6me8csx"]
+[gd_scene load_steps=10 format=3 uid="uid://bow68u6me8csx"]
 
 [ext_resource type="Script" uid="uid://cch66bpueagek" path="res://scenes/main/bridge/bridge.gd" id="1_ahfi1"]
 [ext_resource type="Material" uid="uid://dprgij1lwg352" path="res://resources/stones/stones.tres" id="1_axhm2"]
 [ext_resource type="AudioStream" uid="uid://but8gprj7qd2h" path="res://resources/audio/arfa.ogg" id="2_ahfi1"]
+[ext_resource type="Script" uid="uid://i6hvkbcmbgtt" path="res://scripts/killzone.gd" id="4_7mv6n"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_a8ohi"]
 material = ExtResource("1_axhm2")
@@ -17,6 +18,9 @@ points = PackedVector3Array(-1, 0, 5, 1, 0, 5, 1, 0.5, 4, -1, 0.5, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1voa"]
 size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahfi1"]
+size = Vector3(1, 4, 6)
 
 [node name="bridge" type="Node3D"]
 script = ExtResource("1_ahfi1")
@@ -47,4 +51,22 @@ stream = ExtResource("2_ahfi1")
 autoplay = true
 panning_strength = 2.0
 
+[node name="Killzone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+script = ExtResource("4_7mv6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9411621, -0.014129639)
+shape = SubResource("BoxShape3D_ahfi1")
+
+[node name="Killzone2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+script = ExtResource("4_7mv6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9411621, -0.014129639)
+shape = SubResource("BoxShape3D_ahfi1")
+
 [connection signal="body_entered" from="target" to="." method="_on_target_body_entered"]
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[connection signal="body_entered" from="Killzone2" to="Killzone2" method="_on_body_entered"]
