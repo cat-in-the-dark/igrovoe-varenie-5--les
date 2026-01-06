@@ -13,8 +13,9 @@ func _physics_process(_delta: float) -> void:
 		player.rotation_degrees.y = 15
 	if player.rotation_degrees.y < -15:
 		player.rotation_degrees.y = -15
-		
+
 func _ready() -> void:
+	Events.game_restarted.emit()
 	Events.les_entered.connect(on_quest_done)
 
 func _on_target_body_entered(body: Node3D) -> void:

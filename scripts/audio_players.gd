@@ -10,6 +10,12 @@ func on_les_entered() -> void:
 func on_izba_entered() -> void:
 	pass
 
+func reset() -> void:
+	golosa.bus = "Muted"
+	arfa.bus = "Muted"
+
 func _ready() -> void:
+	reset()
 	Events.les_entered.connect(on_les_entered)
 	Events.izba_entered.connect(on_izba_entered)
+	Events.game_restarted.connect(reset)
