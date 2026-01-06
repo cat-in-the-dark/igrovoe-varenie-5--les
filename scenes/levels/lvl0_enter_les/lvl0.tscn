@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://pjh4ylke5y2m"]
+[gd_scene load_steps=11 format=3 uid="uid://pjh4ylke5y2m"]
 
 [ext_resource type="PackedScene" uid="uid://bebtglkrci4wc" path="res://scenes/main/floor.tscn" id="1_84svu"]
 [ext_resource type="Script" uid="uid://wdt06jext7en" path="res://scenes/levels/lvl0_enter_les/lvl_0.gd" id="1_cmvmp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://j7dlglxk4m4k" path="res://scenes/main/player/player.tscn" id="2_y81wl"]
 [ext_resource type="Environment" uid="uid://dr4yxftv2soyc" path="res://scenes/levels/lvl0_enter_les/lvl0_env.tres" id="3_2oxld"]
 [ext_resource type="PackedScene" uid="uid://8dx8bbyu1cbi" path="res://scenes/main/forest/forest_enter.tscn" id="4_63jjx"]
+[ext_resource type="AudioStream" uid="uid://c0iq0g1equ7j" path="res://resources/audio/golosa.ogg" id="8_5vqo5"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_63jjx"]
 
@@ -59,6 +60,11 @@ collision_layer = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_63jjx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Target"]
+stream = ExtResource("8_5vqo5")
+unit_size = 8.0
+autoplay = true
 
 [node name="wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, -12)

@@ -45,7 +45,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+func on_quest_done():
+	set_physics_process(false)
+	
 func _ready() -> void:
-	Events.izba_entered.connect(func on_izba_reached() -> void:
-		set_physics_process(false)
-	)
+	Events.izba_entered.connect(on_quest_done)
+	Events.les_entered.connect(on_quest_done)

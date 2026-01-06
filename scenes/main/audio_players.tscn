@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1yqve2ws6bsm"]
+
+[ext_resource type="AudioStream" uid="uid://kkm4k5oq70q0" path="res://resources/audio/main.ogg" id="1_cstqb"]
+[ext_resource type="Script" uid="uid://by2srvdupklkq" path="res://scripts/audio_players.gd" id="1_qraec"]
+[ext_resource type="AudioStream" uid="uid://c0iq0g1equ7j" path="res://resources/audio/golosa.ogg" id="2_qraec"]
+[ext_resource type="AudioStream" uid="uid://but8gprj7qd2h" path="res://resources/audio/arfa.ogg" id="3_2uoyy"]
+
+[node name="AudioPlayers" type="Node"]
+script = ExtResource("1_qraec")
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_cstqb")
+autoplay = true
+
+[node name="Golosa" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qraec")
+autoplay = true
+bus = &"Muted"
+
+[node name="Arfa" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2uoyy")
+autoplay = true
+bus = &"Muted"
