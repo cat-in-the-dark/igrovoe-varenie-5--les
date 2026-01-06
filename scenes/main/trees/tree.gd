@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var sprites: Array[Sprite3D] = [
-	$Tree1, $Tree2, $Elka
+	$Tree1, $Tree2, $Elka, $Kust
 ]
 
 func _ready() -> void:

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6dyuerqlarm2"]
+
+[ext_resource type="Environment" uid="uid://bcvsq8xbul6h" path="res://scenes/levels/win/win_env.tres" id="1_apxsx"]
+[ext_resource type="Texture2D" uid="uid://cmslnu342v2sb" path="res://resources/izba/izba.png" id="2_ativr"]
+[ext_resource type="AudioStream" uid="uid://btpl6kuxg0v4f" path="res://resources/audio/noise.ogg" id="3_q7xdy"]
+
+[node name="Win" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 60.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_apxsx")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.749631)
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_ativr")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7229116, 0, -9.911352)
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_ativr")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8693423, 0, -9.911352)
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_ativr")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2727776, -3.443273)
+billboard = 2
+texture_filter = 0
+text = "Бууу"
+font_size = 64
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q7xdy")
+autoplay = true

@@ -11,7 +11,7 @@ func _ready() -> void:
 		await get_tree().create_timer(1.0).timeout
 		_animation_player.play("fade_in")
 		await _animation_player.animation_finished
-		get_tree().change_scene_to_file("res://scenes/levels/enter_les/lvl0.tscn")
+		get_tree().change_scene_to_file("res://scenes/levels/win/win.tscn")
 	)
 	izba_distance = izba.global_position.distance_to(player.global_position)
 

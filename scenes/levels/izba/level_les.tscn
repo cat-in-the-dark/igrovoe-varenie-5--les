@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8wd1uuswlbq8"]
+[gd_scene load_steps=13 format=3 uid="uid://c8wd1uuswlbq8"]
 
 [ext_resource type="PackedScene" uid="uid://j7dlglxk4m4k" path="res://scenes/main/player/player.tscn" id="1_3bmfn"]
 [ext_resource type="Script" uid="uid://dge7gu6ghq8sq" path="res://scripts/tilemap.gd" id="1_canl8"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c0iq0g1equ7j" path="res://resources/audio/golosa.ogg" id="9_8lmk3"]
 [ext_resource type="AudioStream" uid="uid://but8gprj7qd2h" path="res://resources/audio/arfa.ogg" id="9_h5vu6"]
 [ext_resource type="PackedScene" uid="uid://b3is738jkgolj" path="res://scenes/main/izba/izba_door.tscn" id="11_a5lp2"]
+[ext_resource type="AudioStream" uid="uid://btpl6kuxg0v4f" path="res://resources/audio/noise.ogg" id="12_gybo0"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_w0uos")
@@ -46,3 +47,8 @@ autoplay = true
 
 [node name="IzbaDoor" parent="." instance=ExtResource("11_a5lp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_gybo0")
+volume_db = -10.0
+autoplay = true

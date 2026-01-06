@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv1llrj3s3ykw"]
+[gd_scene load_steps=7 format=3 uid="uid://cv1llrj3s3ykw"]
 
 [ext_resource type="Texture2D" uid="uid://c0up7fottanej" path="res://scenes/main/trees/tree3.png" id="1_a8d1t"]
 [ext_resource type="Script" uid="uid://bx3p5yc4hmakx" path="res://scenes/main/trees/tree.gd" id="1_dubo0"]
 [ext_resource type="Texture2D" uid="uid://4b4f44qlgv3s" path="res://scenes/main/trees/tree1.png" id="1_v02rt"]
 [ext_resource type="Texture2D" uid="uid://dckkrc54k1y2v" path="res://scenes/main/trees/elka.png" id="2_pish7"]
+[ext_resource type="Texture2D" uid="uid://clde0sxndih8k" path="res://scenes/main/trees/kust.png" id="5_36jtm"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a8d1t"]
 height = 4.0
@@ -41,6 +42,15 @@ pixel_size = 0.02
 billboard = 2
 texture_filter = 0
 texture = ExtResource("2_pish7")
+region_rect = Rect2(0, -8, 264, 360)
+
+[node name="Kust" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2676909, 0)
+visible = false
+pixel_size = 0.02
+billboard = 2
+texture_filter = 0
+texture = ExtResource("5_36jtm")
 region_rect = Rect2(0, -8, 264, 360)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

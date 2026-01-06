@@ -4,7 +4,7 @@ extends Node3D
 @onready var tree_prefab: PackedScene = preload("res://scenes/main/trees/tree.tscn")
 
 var size: float = 24
-var spacing: float = 4
+@export var spacing: float = 4
 var jitter: float = 1
 
 func generate_points(x: float, y: float) -> Array[Vector2]:

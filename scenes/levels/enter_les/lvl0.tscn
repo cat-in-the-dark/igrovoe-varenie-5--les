@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://pjh4ylke5y2m"]
+[gd_scene load_steps=14 format=3 uid="uid://pjh4ylke5y2m"]
 
 [ext_resource type="PackedScene" uid="uid://bebtglkrci4wc" path="res://scenes/main/floor.tscn" id="1_84svu"]
 [ext_resource type="Script" uid="uid://wdt06jext7en" path="res://scenes/levels/enter_les/lvl_0.gd" id="1_cmvmp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://8dx8bbyu1cbi" path="res://scenes/main/forest/forest_enter.tscn" id="4_63jjx"]
 [ext_resource type="PackedScene" uid="uid://cu4uw1e26xuu7" path="res://scenes/main/ground_boundary.tscn" id="8_2acag"]
 [ext_resource type="AudioStream" uid="uid://c0iq0g1equ7j" path="res://resources/audio/golosa.ogg" id="8_5vqo5"]
+[ext_resource type="AudioStream" uid="uid://btpl6kuxg0v4f" path="res://resources/audio/noise.ogg" id="9_hdx5s"]
 [ext_resource type="AudioStream" uid="uid://kkm4k5oq70q0" path="res://resources/audio/main.ogg" id="9_hp3lj"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_63jjx"]
@@ -94,7 +95,12 @@ shape = SubResource("BoxShape3D_y2ypo")
 
 [node name="Ground" parent="." instance=ExtResource("8_2acag")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_hdx5s")
+volume_db = -10.0
+autoplay = true
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_hp3lj")
 volume_db = -12.0
 autoplay = true
