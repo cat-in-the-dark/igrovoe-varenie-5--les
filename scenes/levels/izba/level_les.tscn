@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8wd1uuswlbq8"]
+[gd_scene load_steps=12 format=3 uid="uid://c8wd1uuswlbq8"]
 
 [ext_resource type="PackedScene" uid="uid://j7dlglxk4m4k" path="res://scenes/main/player/player.tscn" id="1_3bmfn"]
 [ext_resource type="Script" uid="uid://dge7gu6ghq8sq" path="res://scripts/tilemap.gd" id="1_canl8"]
@@ -10,12 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://kkm4k5oq70q0" path="res://resources/audio/main.ogg" id="8_jfpsq"]
 [ext_resource type="AudioStream" uid="uid://c0iq0g1equ7j" path="res://resources/audio/golosa.ogg" id="9_8lmk3"]
 [ext_resource type="AudioStream" uid="uid://but8gprj7qd2h" path="res://resources/audio/arfa.ogg" id="9_h5vu6"]
+[ext_resource type="PackedScene" uid="uid://b3is738jkgolj" path="res://scenes/main/izba/izba_door.tscn" id="11_a5lp2"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_w0uos")
 
 [node name="Player" parent="." instance=ExtResource("1_3bmfn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_canl8")
@@ -42,3 +43,6 @@ volume_db = -12.0
 stream = ExtResource("9_8lmk3")
 volume_db = -12.0
 autoplay = true
+
+[node name="IzbaDoor" parent="." instance=ExtResource("11_a5lp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
