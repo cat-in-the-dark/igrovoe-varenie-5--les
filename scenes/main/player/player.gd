@@ -47,7 +47,12 @@ func _physics_process(delta: float) -> void:
 	
 func on_quest_done():
 	set_physics_process(false)
+
+func on_killed():
+	set_physics_process(false)
 	
 func _ready() -> void:
 	Events.izba_entered.connect(on_quest_done)
 	Events.les_entered.connect(on_quest_done)
+	Events.river_passed.connect(on_quest_done)
+	Events.killzone_touched.connect(on_killed)

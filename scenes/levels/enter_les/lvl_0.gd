@@ -6,7 +6,7 @@ extends Node3D
 func on_quest_done():
 	_animation_player.play("fade_in")
 	await _animation_player.animation_finished
-	get_tree().change_scene_to_file("res://scenes/levels/lvl1_ les_izba/level_les.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/river/lvl_river.tscn")
 
 func _physics_process(_delta: float) -> void:
 	if player.rotation_degrees.y > 15:

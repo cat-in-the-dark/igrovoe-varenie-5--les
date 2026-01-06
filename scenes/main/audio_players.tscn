@@ -10,14 +10,17 @@ script = ExtResource("1_qraec")
 
 [node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_cstqb")
+volume_db = -8.0
 autoplay = true
 
 [node name="Golosa" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qraec")
+volume_db = -8.0
 autoplay = true
 bus = &"Muted"
 
 [node name="Arfa" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2uoyy")
+volume_db = -8.0
 autoplay = true
 bus = &"Muted"

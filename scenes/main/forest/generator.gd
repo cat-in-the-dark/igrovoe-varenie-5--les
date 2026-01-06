@@ -23,9 +23,6 @@ func spawn_object(points: Array[Vector2]):
 		var obj: Node3D = tree_prefab.instantiate()
 		self.add_child(obj)
 		obj.position = Vector3(point.x, 0, point.y)
-		if i % 5 == 0:
-			# next frame for performance
-			await get_tree().process_frame
 
 func  _ready() -> void:
 	var points = generate_points(0, 0)

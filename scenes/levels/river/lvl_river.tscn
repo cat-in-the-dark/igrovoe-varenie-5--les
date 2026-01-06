@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://cjkd5t78ttcc5"]
+
+[ext_resource type="PackedScene" uid="uid://cx10dts3hw0kb" path="res://scenes/main/fade_effect/fade.tscn" id="1_gkrre"]
+[ext_resource type="Script" uid="uid://cimyexdssf7rg" path="res://scenes/levels/river/lvl_river.gd" id="1_grstv"]
+[ext_resource type="PackedScene" uid="uid://j7dlglxk4m4k" path="res://scenes/main/player/player.tscn" id="2_nfus7"]
+[ext_resource type="Environment" uid="uid://bf7bn144uix21" path="res://scenes/levels/river/river_env.tres" id="3_5jef4"]
+[ext_resource type="PackedScene" uid="uid://1gf1y14kj8rg" path="res://scenes/main/forest/river.tscn" id="6_bjnnk"]
+[ext_resource type="PackedScene" uid="uid://bow68u6me8csx" path="res://scenes/main/bridge/bridge.tscn" id="6_r1voa"]
+[ext_resource type="PackedScene" uid="uid://8dx8bbyu1cbi" path="res://scenes/main/forest/forest_enter.tscn" id="7_r1voa"]
+[ext_resource type="PackedScene" uid="uid://cu4uw1e26xuu7" path="res://scenes/main/ground_boundary.tscn" id="8_v7l3o"]
+[ext_resource type="AudioStream" uid="uid://kkm4k5oq70q0" path="res://resources/audio/main.ogg" id="9_p2rwd"]
+[ext_resource type="AudioStream" uid="uid://c0iq0g1equ7j" path="res://resources/audio/golosa.ogg" id="9_ymm6c"]
+
+[node name="LvlRiver" type="Node3D"]
+script = ExtResource("1_grstv")
+
+[node name="Fade" parent="." instance=ExtResource("1_gkrre")]
+
+[node name="Player" parent="." instance=ExtResource("2_nfus7")]
+transform = Transform3D(-0.5379765, 0, -0.8429598, 0, 1, 0, 0.8429598, 0, -0.5379765, 14.858704, 0, 5.1051807)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_5jef4")
+
+[node name="bridge" parent="." instance=ExtResource("6_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.192127, 0, -15)
+
+[node name="River" parent="." instance=ExtResource("6_bjnnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -4)
+
+[node name="River2" parent="." instance=ExtResource("6_bjnnk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 4)
+
+[node name="River3" parent="." instance=ExtResource("6_bjnnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="River4" parent="." instance=ExtResource("6_bjnnk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24, 0, 4)
+
+[node name="River5" parent="." instance=ExtResource("6_bjnnk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0, -12)
+
+[node name="River8" parent="." instance=ExtResource("6_bjnnk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0, 12)
+
+[node name="forest" parent="." instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.704708, 0, -40)
+
+[node name="forest2" parent="." instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -40)
+
+[node name="forest3" parent="." instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -40)
+
+[node name="forest4" parent="." instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.062561, 0, 18)
+
+[node name="forest4" parent="forest4" instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.970001, 0, -2.9709997)
+
+[node name="forest4" parent="forest4/forest4" instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6191864, 0, -30.52607)
+
+[node name="forest5" parent="." instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.937439, 0, 18)
+
+[node name="forest6" parent="." instance=ExtResource("7_r1voa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -6)
+
+[node name="Ground" parent="." instance=ExtResource("8_v7l3o")]
+
+[node name="Golosa" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ymm6c")
+volume_db = -12.0
+autoplay = true
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_p2rwd")
+volume_db = -12.0
+autoplay = true

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dprgij1lwg352"]
+
+[ext_resource type="Texture2D" uid="uid://p56rr6bwpy6o" path="res://resources/stones/stones.jpg" id="1_b45o2"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_b45o2")
+uv1_scale = Vector3(4, 4, 4)
+texture_filter = 0

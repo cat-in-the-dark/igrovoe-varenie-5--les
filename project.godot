@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="les"
-run/main_scene="uid://pjh4ylke5y2m"
+run/main_scene="uid://c8wd1uuswlbq8"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://0fs7humwd84o"
 
 [autoload]
 
 Events="*res://scripts/events.gd"
-AudioPlayers="*res://scenes/main/audio_players.tscn"
 
 [display]
 

@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bow68u6me8csx"]
+
+[ext_resource type="Script" uid="uid://cch66bpueagek" path="res://scenes/main/bridge/bridge.gd" id="1_ahfi1"]
+[ext_resource type="Material" uid="uid://dprgij1lwg352" path="res://resources/stones/stones.tres" id="1_axhm2"]
+[ext_resource type="AudioStream" uid="uid://but8gprj7qd2h" path="res://resources/audio/arfa.ogg" id="2_ahfi1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a8ohi"]
+material = ExtResource("1_axhm2")
+top_radius = 1.0
+bottom_radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjnnk"]
+size = Vector3(2, 1, 8)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bjnnk"]
+points = PackedVector3Array(-1, 0, 5, 1, 0, 5, 1, 0.5, 4, -1, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r1voa"]
+size = Vector3(2, 2, 1)
+
+[node name="bridge" type="Node3D"]
+script = ExtResource("1_ahfi1")
+
+[node name="bridge skin" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.5298986e-07, 1, -4.371139e-08, 0, -4.371139e-08, -1, -3.5, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+mesh = SubResource("CylinderMesh_a8ohi")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4903698)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_bjnnk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_bjnnk")
+
+[node name="target" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4120388, -2.846363)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="target"]
+shape = SubResource("BoxShape3D_r1voa")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="target"]
+stream = ExtResource("2_ahfi1")
+autoplay = true
+panning_strength = 2.0
+
+[connection signal="body_entered" from="target" to="." method="_on_target_body_entered"]

@@ -9,6 +9,9 @@ func on_les_entered() -> void:
 	
 func on_izba_entered() -> void:
 	pass
+	
+func on_river_passed() -> void:
+	arfa.bus = "Master"
 
 func reset() -> void:
 	golosa.bus = "Muted"
@@ -18,4 +21,5 @@ func _ready() -> void:
 	reset()
 	Events.les_entered.connect(on_les_entered)
 	Events.izba_entered.connect(on_izba_entered)
+	Events.river_passed.connect(on_river_passed)
 	Events.game_restarted.connect(reset)

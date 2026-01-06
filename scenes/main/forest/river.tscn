@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://1gf1y14kj8rg"]
+
+[ext_resource type="Material" uid="uid://bqkcf5x3gf0co" path="res://resources/leaves/leaves.tres" id="1_j1mtb"]
+[ext_resource type="Script" uid="uid://ix63wx07aw2p" path="res://scenes/main/forest/generator.gd" id="1_yduvh"]
+[ext_resource type="Material" uid="uid://murw1v2rvhde" path="res://resources/river/lava_particles_mat.tres" id="2_yduvh"]
+[ext_resource type="Material" uid="uid://c0yvi32xpw1d6" path="res://resources/river/river.tres" id="3_tmegd"]
+[ext_resource type="Script" uid="uid://i6hvkbcmbgtt" path="res://scripts/killzone.gd" id="4_37s8p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5jef4"]
+material = ExtResource("1_j1mtb")
+size = Vector2(24, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjnnk"]
+size = Vector3(24, 1, 3)
+
+[sub_resource type="SphereMesh" id="SphereMesh_r1voa"]
+material = ExtResource("3_tmegd")
+
+[node name="River" type="Node3D"]
+script = ExtResource("1_yduvh")
+
+[node name="floor1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
+mesh = SubResource("PlaneMesh_5jef4")
+
+[node name="river" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+
+[node name="Deadzone" type="Area3D" parent="river"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.3, 0)
+collision_mask = 2
+script = ExtResource("4_37s8p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="river/Deadzone"]
+shape = SubResource("BoxShape3D_bjnnk")
+
+[node name="particles" type="Node3D" parent="river"]
+
+[node name="Particles1" type="GPUParticles3D" parent="river/particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+amount = 16
+process_material = ExtResource("2_yduvh")
+draw_pass_1 = SubResource("SphereMesh_r1voa")
+
+[node name="Particles2" type="GPUParticles3D" parent="river/particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+amount = 16
+process_material = ExtResource("2_yduvh")
+draw_pass_1 = SubResource("SphereMesh_r1voa")
+
+[node name="Particles3" type="GPUParticles3D" parent="river/particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+amount = 16
+process_material = ExtResource("2_yduvh")
+draw_pass_1 = SubResource("SphereMesh_r1voa")
+
+[node name="Particles4" type="GPUParticles3D" parent="river/particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+amount = 16
+process_material = ExtResource("2_yduvh")
+draw_pass_1 = SubResource("SphereMesh_r1voa")
+
+[node name="Particles5" type="GPUParticles3D" parent="river/particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
+amount = 16
+process_material = ExtResource("2_yduvh")
+draw_pass_1 = SubResource("SphereMesh_r1voa")
+
+[node name="Particles6" type="GPUParticles3D" parent="river/particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+amount = 16
+process_material = ExtResource("2_yduvh")
+draw_pass_1 = SubResource("SphereMesh_r1voa")
+
+[connection signal="body_entered" from="river/Deadzone" to="river/Deadzone" method="_on_body_entered"]
