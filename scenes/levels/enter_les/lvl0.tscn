@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pjh4ylke5y2m"]
+[gd_scene load_steps=15 format=3 uid="uid://pjh4ylke5y2m"]
 
 [ext_resource type="PackedScene" uid="uid://bebtglkrci4wc" path="res://scenes/main/floor.tscn" id="1_84svu"]
 [ext_resource type="Script" uid="uid://wdt06jext7en" path="res://scenes/levels/enter_les/lvl_0.gd" id="1_cmvmp"]
@@ -18,6 +18,13 @@ size = Vector3(1, 1, 48)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2ypo"]
 size = Vector3(24, 1, 1)
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_hdx5s"]
+stream_count = 2
+stream_0/stream = ExtResource("9_hdx5s")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("9_hp3lj")
+stream_1/volume = 0.0
 
 [node name="Lvl0" type="Node3D"]
 script = ExtResource("1_cmvmp")
@@ -95,13 +102,8 @@ shape = SubResource("BoxShape3D_y2ypo")
 
 [node name="Ground" parent="." instance=ExtResource("8_2acag")]
 
-[node name="Noise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_hdx5s")
-volume_db = -10.0
-autoplay = true
-
 [node name="Background" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_hp3lj")
+stream = SubResource("AudioStreamSynchronized_hdx5s")
 volume_db = -12.0
 autoplay = true
 
